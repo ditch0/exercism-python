@@ -10,7 +10,7 @@ class Robot(object):
         self.reset()
 
     def reset(self) -> None:
-        self.name = Robot.__generate_unique_name()
+        self.name = self.__generate_unique_name()
 
     @classmethod
     def __generate_unique_name(cls) -> str:
@@ -24,7 +24,7 @@ class Robot(object):
     def __generate_name(cls) -> str:
         return cls.__generate_random_string(string.ascii_uppercase, 2) + cls.__generate_random_string(string.digits, 3)
 
-    @classmethod
-    def __generate_random_string(cls, chars: str, length: int) -> str:
+    @staticmethod
+    def __generate_random_string(chars: str, length: int) -> str:
         random_chars = random.choices(chars, k=length)
         return ''.join(random_chars)
