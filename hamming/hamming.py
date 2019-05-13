@@ -2,4 +2,4 @@ def distance(strand_a: str, strand_b: str) -> int:
     if len(strand_a) != len(strand_b):
         raise ValueError('Strands must have same length')
 
-    return len([i for i in range(len(strand_a)) if strand_a[i] != strand_b[i]])
+    return sum(1 for a, b in zip(strand_a, strand_b) if a != b)
