@@ -8,7 +8,6 @@ def word_count(phrase: str) -> Dict[str, int]:
 
     def count_word(counts: Dict[str, int], word: str) -> Dict[str, int]:
         prev_count = counts.get(word, 0)
-        counts[word] = prev_count + 1
-        return counts
+        return {**counts, word: prev_count + 1}
 
     return functools.reduce(count_word, words, {})
