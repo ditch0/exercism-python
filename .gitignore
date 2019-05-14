@@ -1,4 +1,6 @@
 /.idea/
+/*.iml
 /.vscode/
 .pytest_cache/
 .exercism/
+/.mypy_cache/
