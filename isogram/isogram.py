@@ -16,5 +16,5 @@ def _get_unique_letters_count(string: str) -> int:
     return len(unique_letters)
 
 
-def _remove_non_letters(string):
+def _remove_non_letters(string: str) -> str:
     return re.sub(r'[^a-z]', '', string, flags=re.IGNORECASE)
