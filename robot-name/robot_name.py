@@ -1,9 +1,10 @@
 import random
 import string
+from typing import Set
 
 
 class Robot(object):
-    used_names = set()
+    used_names: Set[str] = set()
 
     def __init__(self):
         self.name = None
