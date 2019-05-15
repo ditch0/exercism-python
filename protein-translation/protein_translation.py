@@ -26,4 +26,4 @@ def split_string_to_chunks(string: str, chunk_length: int) -> List[str]:
 def proteins(strand: str) -> List[str]:
     codons = split_string_to_chunks(strand, 3)
     translatable_codons = itertools.takewhile(lambda codon: codon in CODONS_NAMES, codons)
-    return [CODONS_NAMES.get(codon) for codon in translatable_codons]
+    return [CODONS_NAMES[codon] for codon in translatable_codons]
