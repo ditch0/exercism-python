@@ -1,8 +1,12 @@
 class SpaceAge(object):
     __SECONDS_IN_EARTH_YEAR = 365.25 * 24 * 60 * 60
 
-    def __init__(self, seconds: int):
-        self.seconds = seconds
+    def __init__(self, seconds: int) -> None:
+        self.__seconds = seconds
+
+    @property
+    def seconds(self) -> int:
+        return self.__seconds
 
     def on_earth(self) -> float:
         return self.__calculate_planetary_years(1)
