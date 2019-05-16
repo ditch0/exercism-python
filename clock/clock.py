@@ -7,7 +7,7 @@ class Clock(object):
 
     @property
     def hours(self) -> int:
-        return int(self.__minutes / 60)
+        return self.__minutes // 60
 
     @property
     def minutes(self) -> int:
