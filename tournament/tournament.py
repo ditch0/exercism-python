@@ -51,10 +51,7 @@ class TeamsRepository:
         self.__teams: Dict[str, Team] = {}
 
     def find_or_create(self, name: str) -> Team:
-        if name not in self.__teams:
-            self.__teams[name] = Team(name)
-
-        return self.__teams[name]
+        return self.__teams.setdefault(name, Team(name))
 
     def find_all(self) -> List[Team]:
         return [team for team in self.__teams.values()]
