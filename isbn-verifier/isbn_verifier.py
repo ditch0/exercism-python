@@ -16,7 +16,7 @@ def extract_isbn_numbers(isbn: str) -> List[int]:
 
 def is_valid_isbn_format(isbn: str) -> bool:
     normalized_isbn = isbn.replace('-', '')
-    return re.match(r'^\d{9}[\dX]$', normalized_isbn) is not None
+    return re.fullmatch(r'\d{9}[\dX]', normalized_isbn) is not None
 
 
 def is_valid_isbn(isbn: str) -> bool:
