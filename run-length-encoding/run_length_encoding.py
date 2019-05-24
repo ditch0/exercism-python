@@ -12,7 +12,7 @@ def decode(string: str) -> str:
     return ''.join(decoded_groups)
 
 
-def encode(string):
+def encode(string: str) -> str:
     groups = [
         (character, len(list(group)))
         for character, group
