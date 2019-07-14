@@ -9,30 +9,30 @@ class BufferEmptyException(Exception):
     pass
 
 
-class CircularBuffer(object):
+class CircularBuffer(deque):
     def __init__(self, capacity):
+        super().__init__()
         self._capacity = capacity
-        self._storage = deque()
 
     def read(self):
-        if len(self._storage) > 0:
-            return self._storage.pop()
-        raise BufferEmptyException('Buffer is empty')
+        if self.is_empty:
+            raise BufferEmptyException('Buffer is empty')
+        return self.pop()
 
     def write(self, data):
-        if not self.is_full:
-            self._storage.appendleft(data)
-        else:
+        if self.is_full:
             raise BufferFullException('Buffer is full')
+        self.appendleft(data)
 
     def overwrite(self, data):
         if self.is_full:
             self.read()
         self.write(data)
 
-    def clear(self):
-        self._storage.clear()
-
     @property
     def is_full(self):
-        return len(self._storage) == self._capacity
+        return len(self) == self._capacity
+
+    @property
+    def is_empty(self):
+        return len(self) == 0
