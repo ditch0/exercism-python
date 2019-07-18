@@ -3,5 +3,5 @@
 /.vscode/
 .pytest_cache/
 .exercism/
-/.mypy_cache/
+.mypy_cache/
 __pycache__/
