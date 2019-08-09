@@ -152,7 +152,6 @@ class RestAPI(Application):
     @http_get('/users')
     def get_users(self, request):
         names = request.get('users')
-        print(self.database.filter_by_names(names).as_list())
         return {'users': self.database.filter_by_names(names).as_list()}
 
     @http_post('/add')
